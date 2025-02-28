@@ -15,7 +15,7 @@ class AnswerButton extends StatelessWidget {
           vertical: 10,
         ), //horizontal and vertical padding
         backgroundColor: CupertinoColors.systemYellow,
-        foregroundColor: const Color.fromARGB(255, 216, 51, 0),
+        foregroundColor: const Color.fromARGB(255, 11, 10, 10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ), //nicely rounded corners

@@ -18,19 +18,31 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.text,
-            style: const TextStyle(color: Colors.white),
-          ),
-          SizedBox(height: 30),
-          AnswerButton(ans: currentQuestion.answers[0], onTap: () {}),
-          AnswerButton(ans: currentQuestion.answers[1], onTap: () {}),
-          AnswerButton(ans: currentQuestion.answers[2], onTap: () {}),
-          AnswerButton(ans: currentQuestion.answers[3], onTap: () {}),
-        ],
+      child: Container(
+        margin: EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment:
+              CrossAxisAlignment.stretch, // horizontal width of options
+          children: [
+            Center(
+              child: Text(
+                currentQuestion.text,
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 30),
+            // map is like a iterable that takes values present in the list
+            // on return it will return a list of values without updating original list
+            // that is the reason we are using ... to separate each button
+            ...currentQuestion.answers.map((x) {
+              return AnswerButton(ans: x, onTap: () {});
+            }), // list the ... is a keyword
+            // what it does is [list, 1,2,3] if list = [5,6,7]
+            // the ... will take the values in list and pull them out
+            // to make [5,6,7,1,2,3] like this
+          ],
+        ),
       ),
     );
   }

@@ -23,8 +23,10 @@ class StartScreen extends StatelessWidget {
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
           SizedBox(height: 40),
-          OutlinedButton.icon(
-            style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.yellowAccent,
+            ),
             onPressed: startQuiz, // pointer to the function
             //  (OR)
             //() {
