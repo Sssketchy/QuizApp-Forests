@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(
+    this.startQuiz, {
+    super.key,
+  }); // positional arguement startQuiz - switchScreen
+  // void function() meaning - starquiz is a function that takes no arguements hence empty ()
+  // and it has no return type therefore void
+
+  final void Function() startQuiz;
 
   @override
   Widget build(ctx) {
@@ -9,10 +16,6 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Opacity(
-          //   opacity: 0.6,
-          //   child: Image.asset('assets/images/tree.png', width: 300),
-          // ),
           Image.asset('assets/images/tree.png', width: 300),
           SizedBox(height: 40),
           Text(
@@ -22,7 +25,11 @@ class StartScreen extends StatelessWidget {
           SizedBox(height: 40),
           OutlinedButton.icon(
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-            onPressed: () {},
+            onPressed: startQuiz, // pointer to the function
+            //  (OR)
+            //() {
+            //   startQuiz(); // we are executing inside anonymous function as a function-call
+            // },
             icon: Icon(Icons.arrow_forward),
             label: const Text('Start Quiz'),
           ),

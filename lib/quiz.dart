@@ -1,3 +1,4 @@
+import 'package:adv_basics/questions_screen.dart';
 import 'package:adv_basics/start_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -7,12 +8,27 @@ class Quiz extends StatefulWidget {
 
   @override
   State<Quiz> createState() {
-    // creating a state from the _QuizState
+    // flutter understands that _QuizState is responsible for UI
     return _QuizState();
   }
 }
 
 class _QuizState extends State<Quiz> {
+  Widget?
+  activeScreen; // question mark to say that activeScreen (custom widget) can be null
+
+  @override
+  void initState() {
+    super.initState();
+    activeScreen = StartScreen(switchScreen);
+  }
+
+  void switchScreen() {
+    setState(() {
+      activeScreen = QuestionsScreen();
+    });
+  }
+
   @override
   Widget build(ctx) {
     return MaterialApp(
@@ -28,7 +44,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: const StartScreen(),
+          child: activeScreen,
         ),
       ),
     );

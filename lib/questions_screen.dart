@@ -12,6 +12,6 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(ctx) {
-    return Text('ballaya');
+    return Center(child: Text('Questions Screen'));
   }
 }
