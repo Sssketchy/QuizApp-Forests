@@ -14,23 +14,30 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget?
-  activeScreen; // question mark to say that activeScreen (custom widget) can be null
+  // Widget?
+  // activeScreen; // question mark to say that activeScreen (custom widget) can be null
 
-  @override
-  void initState() {
-    super.initState();
-    activeScreen = StartScreen(switchScreen);
-  }
+  var activeScreen = 'Start-Screen';
+
+  // you dont need init if you are using var string to assign the states
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   activeScreen = 'Start-Screen';
+  // }
 
   void switchScreen() {
     setState(() {
-      activeScreen = QuestionsScreen();
+      activeScreen = 'Question-Screen';
     });
   }
 
   @override
   Widget build(ctx) {
+    final screenChoice =
+        activeScreen == 'Start-Screen'
+            ? StartScreen(switchScreen)
+            : QuestionsScreen();
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -38,13 +45,13 @@ class _QuizState extends State<Quiz> {
             gradient: LinearGradient(
               colors: [
                 const Color.fromARGB(255, 23, 116, 40),
-                const Color.fromARGB(255, 91, 224, 120),
+                const Color.fromARGB(255, 100, 125, 85),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: screenChoice,
         ),
       ),
     );
