@@ -12,9 +12,18 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+  void answerQuestion() {
+    setState(() {
+      if (currentQuestionIndex < 9) {
+        currentQuestionIndex++;
+      } else {}
+    });
+  }
+
   @override
   Widget build(ctx) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -36,7 +45,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             // on return it will return a list of values without updating original list
             // that is the reason we are using ... to separate each button
             ...currentQuestion.getShuffledAnswers().map((x) {
-              return AnswerButton(ans: x, onTap: () {});
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AnswerButton(ans: x, onTap: answerQuestion),
+              );
             }), // list the ... is a keyword
             // what it does is [list, 1,2,3] if list = [5,6,7]
             // the ... will take the values in list and pull them out

@@ -2,6 +2,7 @@ import 'package:adv_basics/models/quiz_question.dart';
 
 // questions - objects
 // questions[text, answers<list>]
+// first come first serve
 const questions = [
   QuizQuestion('Which of these is not a consumptive value?', [
     'education',
