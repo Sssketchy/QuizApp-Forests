@@ -35,7 +35,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             // map is like a iterable that takes values present in the list
             // on return it will return a list of values without updating original list
             // that is the reason we are using ... to separate each button
-            ...currentQuestion.answers.map((x) {
+            ...currentQuestion.getShuffledAnswers().map((x) {
               return AnswerButton(ans: x, onTap: () {});
             }), // list the ... is a keyword
             // what it does is [list, 1,2,3] if list = [5,6,7]

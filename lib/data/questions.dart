@@ -4,10 +4,10 @@ import 'package:adv_basics/models/quiz_question.dart';
 // questions[text, answers<list>]
 const questions = [
   QuizQuestion('Which of these is not a consumptive value?', [
+    'education',
     'timber',
     'firewood',
     'non-timber forest products',
-    'education',
   ]),
   QuizQuestion('Which of these is not a forest type found in India?', [
     'Mediterranean dry',
@@ -18,32 +18,32 @@ const questions = [
   QuizQuestion(
     '“Plant community, predominantly comprised of trees and other woody vegetation, usually with a closed canopy" is',
     [
+      'ecological definition of forests',
       'silvicultural definition of forests',
       'FAO definition of forests',
       'legal definition of forests',
-      'ecological definition of forests',
     ],
   ),
   QuizQuestion(
     'According to the Supreme Court, the word forest must be understood according to its',
     [
+      'dictionary meaning',
       'biological meaning',
       'ecological meaning',
       'silvicultural meaning',
-      'dictionary meaning',
     ],
   ),
   QuizQuestion('Which of these is not a use value?', [
+    'existence value',
     'direct value',
     'indirect value',
     'option value',
-    'existence value',
   ]),
   QuizQuestion('According to the Supreme Court, the term forest land includes', [
+    'any area recorded as forest in the Government record irrespective of ownership',
     'some area recorded as forest in the Government record according to ownership',
     'any area recorded as forest in the Government record according to ownership',
     'some area recorded as forest in the Government record irrespective of ownership',
-    'any area recorded as forest in the Government record irrespective of ownership',
   ]),
   QuizQuestion('Tropical moist forests do not include', [
     'broadleaved forests',
@@ -53,7 +53,7 @@ const questions = [
   ]),
   QuizQuestion(
     'The value of leaving use and non-use values for offspring’s or future generations is called',
-    ['altruistic value', 'bequest value', 'existence value', 'option value'],
+    ['bequest value', 'altruistic value', 'existence value', 'option value'],
   ),
   QuizQuestion('The term \'forest\' originates from', [
     'Latin foris meaning outside',
