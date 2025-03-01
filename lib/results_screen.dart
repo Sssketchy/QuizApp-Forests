@@ -71,7 +71,14 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: 30),
             QuestionsSummary(summaryData),
             const SizedBox(height: 30),
-            TextButton.icon(onPressed: retryChoice, label: Text('Retry ?')),
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 160, 22, 202),
+              ),
+              onPressed: retryChoice,
+              label: Text('Retry ?', style: TextStyle(color: Colors.white)),
+              icon: Icon(Icons.refresh_sharp, color: Colors.white),
+            ),
           ],
         ),
       ),
