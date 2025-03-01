@@ -42,8 +42,31 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              ' $numCorrectQuestions / $numTotalQuestions questions are Right !!',
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '$numCorrectQuestions',
+                    style: TextStyle(
+                      color:
+                          numCorrectQuestions == numTotalQuestions
+                              ? Colors.greenAccent
+                              : Colors.red,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    ' / ',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    '$numTotalQuestions',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 30),
             QuestionsSummary(summaryData),

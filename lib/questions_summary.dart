@@ -10,6 +10,7 @@ class QuestionsSummary extends StatelessWidget {
     return SizedBox(
       height: 300,
       child: SingleChildScrollView(
+        // make it scroll
         child: Column(
           children:
               summaryData.map((data) {
