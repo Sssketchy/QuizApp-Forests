@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(
@@ -8,7 +9,8 @@ class StartScreen extends StatelessWidget {
   // void function() meaning - starquiz is a function that takes no arguements hence empty ()
   // and it has no return type therefore void
 
-  final void Function() startQuiz;
+  final void Function()
+  startQuiz; // has the activeScreen assigned to QuestionsScreen
 
   @override
   Widget build(ctx) {
@@ -16,12 +18,12 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset('assets/images/tree.png', width: 300),
-          SizedBox(height: 40),
           Text(
             'Forests and their Management Quiz',
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            style: GoogleFonts.unbounded(fontSize: 17),
           ),
+          SizedBox(height: 40),
+          Image.asset('assets/images/tree.png', width: 300),
           SizedBox(height: 40),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(

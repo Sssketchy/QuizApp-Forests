@@ -1,3 +1,4 @@
+import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/questions_screen.dart';
 import 'package:adv_basics/start_screen.dart';
 
@@ -19,7 +20,9 @@ class _QuizState extends State<Quiz> {
 
   var activeScreen = 'Start-Screen';
 
-  // you dont need init if you are using var string to assign the states
+  List<String> selectedAnswers = []; // answers selected by the attendee
+
+  // you dont need init if you are using var string to assign the states a.k.a the start screen
   // @override
   // void initState() {
   //   super.initState();
@@ -27,9 +30,20 @@ class _QuizState extends State<Quiz> {
   // }
 
   void switchScreen() {
+    // function used inside on-pressed
     setState(() {
+      selectedAnswers = [];
       activeScreen = 'Question-Screen';
     });
+  }
+
+  void chooseAnswer(String ans) {
+    selectedAnswers.add(ans);
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = 'Start-Screen';
+      });
+    }
   }
 
   @override
@@ -37,7 +51,9 @@ class _QuizState extends State<Quiz> {
     final screenChoice =
         activeScreen == 'Start-Screen'
             ? StartScreen(switchScreen)
-            : QuestionsScreen();
+            : QuestionsScreen(
+              onSelectAnswer: chooseAnswer,
+            ); // passing function as a parameter
 
     return MaterialApp(
       home: Scaffold(
