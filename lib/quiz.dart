@@ -15,6 +15,12 @@ class Quiz extends StatefulWidget {
   }
 }
 
+/*
+ Function in the Quiz.dart
+  switchScreen()
+  chooseAnswer(String ans)
+  build
+*/
 class _QuizState extends State<Quiz> {
   // Widget?
   // activeScreen; // question mark to say that activeScreen (custom widget) can be null
@@ -56,7 +62,10 @@ class _QuizState extends State<Quiz> {
               onSelectAnswer: chooseAnswer,
             ); // passing function as a parameter
     if (activeScreen == 'Results-Screen') {
-      screenChoice = ResultsScreen(chosenAnswers: selectedAnswers);
+      screenChoice = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+        retryChoice: switchScreen,
+      );
     }
     return MaterialApp(
       home: Scaffold(

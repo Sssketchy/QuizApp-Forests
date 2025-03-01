@@ -3,9 +3,15 @@ import 'package:adv_basics/questions_summary.dart';
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chosenAnswers});
+  const ResultsScreen({
+    required this.chosenAnswers,
+    required this.retryChoice,
+    super.key,
+  });
 
   final List<String> chosenAnswers;
+
+  final void Function() retryChoice;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -42,7 +48,7 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: 30),
             QuestionsSummary(summaryData),
             const SizedBox(height: 30),
-            TextButton.icon(onPressed: () {}, label: Text('Retry ?')),
+            TextButton.icon(onPressed: retryChoice, label: Text('Retry ?')),
           ],
         ),
       ),

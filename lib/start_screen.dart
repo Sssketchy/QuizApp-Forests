@@ -27,15 +27,18 @@ class StartScreen extends StatelessWidget {
           SizedBox(height: 40),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.yellowAccent,
+              backgroundColor: const Color.fromARGB(255, 160, 22, 202),
             ),
             onPressed: startQuiz, // pointer to the function
             //  (OR)
             //() {
             //   startQuiz(); // we are executing inside anonymous function as a function-call
             // },
-            icon: Icon(Icons.arrow_forward),
-            label: const Text('Start Quiz'),
+            icon: Icon(Icons.arrow_forward, color: Colors.white),
+            label: const Text(
+              'Start Quiz',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
