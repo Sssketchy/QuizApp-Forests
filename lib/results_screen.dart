@@ -22,6 +22,13 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(ctx) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions =
+        summaryData.where((data) {
+          return data['user_answer'] == data['correct_answer'];
+        }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -29,9 +36,11 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('X / Y questions are Right !!'),
+            Text(
+              ' $numCorrectQuestions / $numTotalQuestions questions are Right !!',
+            ),
             const SizedBox(height: 30),
-            QuestionsSummary(getSummaryData()),
+            QuestionsSummary(summaryData),
             const SizedBox(height: 30),
             TextButton.icon(onPressed: () {}, label: Text('Retry ?')),
           ],

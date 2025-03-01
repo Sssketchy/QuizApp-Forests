@@ -7,28 +7,34 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(ctx) {
-    return Column(
-      children:
-          summaryData.map((data) {
-            return Row(
-              children: [
-                // reasons for using 'as'
-                // map has key - String and value - object
-                // hence we have to typecast what the object variable is ? String or int or ...
-                Text(((data['question_index'] as int) + 1).toString()),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Text(data['question'] as String),
-                      SizedBox(height: 5),
-                      Text(data['user_answer'] as String),
-                      Text(data['correct_answer'] as String),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          }).toList(),
+    return SizedBox(
+      height: 300,
+      child: SingleChildScrollView(
+        child: Column(
+          children:
+              summaryData.map((data) {
+                return Row(
+                  children: [
+                    // reasons for using 'as'
+                    // map has key - String and value - object
+                    // hence we have to typecast what the object variable is ? String or int or ...
+                    Text(((data['question_index'] as int) + 1).toString()),
+                    Expanded(
+                      // using expanded restricts the column with the size of the row
+                      child: Column(
+                        children: [
+                          Text(data['question'] as String),
+                          SizedBox(height: 5),
+                          Text(data['user_answer'] as String),
+                          Text(data['correct_answer'] as String),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              }).toList(),
+        ),
+      ),
     );
   }
 }
