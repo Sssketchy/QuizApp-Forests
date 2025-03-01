@@ -16,13 +16,15 @@ class QuestionsSummary extends StatelessWidget {
                 // map has key - String and value - object
                 // hence we have to typecast what the object variable is ? String or int or ...
                 Text(((data['question_index'] as int) + 1).toString()),
-                Column(
-                  children: [
-                    Text(data['question'] as String),
-                    SizedBox(height: 5),
-                    Text(data['user_answer'] as String),
-                    Text(data['correct_answer'] as String),
-                  ],
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text(data['question'] as String),
+                      SizedBox(height: 5),
+                      Text(data['user_answer'] as String),
+                      Text(data['correct_answer'] as String),
+                    ],
+                  ),
                 ),
               ],
             );
