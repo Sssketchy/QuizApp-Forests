@@ -33,6 +33,7 @@ class StartScreen extends StatelessWidget {
             //  (OR)
             //() {
             //   startQuiz(); // we are executing inside anonymous function as a function-call
+            //
             // },
             icon: Icon(Icons.arrow_forward, color: Colors.white),
             label: const Text(
